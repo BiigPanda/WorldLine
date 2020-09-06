@@ -19,6 +19,9 @@
 		9A84933B25055F9D00391D72 /* MonumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84933A25055F9D00391D72 /* MonumentModel.swift */; };
 		9A84933F2505644600391D72 /* MainMonumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84933D2505644600391D72 /* MainMonumentTableViewCell.swift */; };
 		9A8493402505644600391D72 /* MainMonumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A84933E2505644600391D72 /* MainMonumentTableViewCell.xib */; };
+		9A8493462505778700391D72 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8493452505778700391D72 /* DetailViewController.swift */; };
+		9A849348250577A400391D72 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A849347250577A400391D72 /* DetailViewModel.swift */; };
+		9A84934A250577B300391D72 /* DetailMonumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A849349250577B300391D72 /* DetailMonumentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		9A84933A25055F9D00391D72 /* MonumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonumentModel.swift; sourceTree = "<group>"; };
 		9A84933D2505644600391D72 /* MainMonumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMonumentTableViewCell.swift; sourceTree = "<group>"; };
 		9A84933E2505644600391D72 /* MainMonumentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMonumentTableViewCell.xib; sourceTree = "<group>"; };
+		9A8493452505778700391D72 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9A849347250577A400391D72 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		9A849349250577B300391D72 /* DetailMonumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonumentModel.swift; sourceTree = "<group>"; };
 		B38BF88A87465AAC3DDE5F0E /* Pods-WorldlineMonuments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldlineMonuments.release.xcconfig"; path = "Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments.release.xcconfig"; sourceTree = "<group>"; };
 		E66A984D5D15680912A766B9 /* Pods_WorldlineMonuments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldlineMonuments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,6 +79,7 @@
 		9A5DD74E25055A5C001E6D5C /* WorldlineMonuments */ = {
 			isa = PBXGroup;
 			children = (
+				9A8493412505774A00391D72 /* Detail */,
 				9A5DD76625055A79001E6D5C /* Main */,
 				9A5DD74F25055A5C001E6D5C /* AppDelegate.swift */,
 				9A5DD75125055A5C001E6D5C /* SceneDelegate.swift */,
@@ -127,6 +134,40 @@
 				9A84933E2505644600391D72 /* MainMonumentTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9A8493412505774A00391D72 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9A8493442505776700391D72 /* Model */,
+				9A8493432505775D00391D72 /* ViewController */,
+				9A8493422505775400391D72 /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9A8493422505775400391D72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9A849347250577A400391D72 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A8493432505775D00391D72 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9A8493452505778700391D72 /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9A8493442505776700391D72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A849349250577B300391D72 /* DetailMonumentModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CED809D77EF679608ABBC52C /* Pods */ = {
@@ -263,12 +304,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5DD76D25055AD8001E6D5C /* MainViewModel.swift in Sources */,
+				9A84934A250577B300391D72 /* DetailMonumentModel.swift in Sources */,
 				9A5DD75A25055A5C001E6D5C /* WorldlineMonuments.xcdatamodeld in Sources */,
 				9A5DD75025055A5C001E6D5C /* AppDelegate.swift in Sources */,
 				9A5DD75225055A5C001E6D5C /* SceneDelegate.swift in Sources */,
+				9A849348250577A400391D72 /* DetailViewModel.swift in Sources */,
 				9A84933F2505644600391D72 /* MainMonumentTableViewCell.swift in Sources */,
 				9A84933B25055F9D00391D72 /* MonumentModel.swift in Sources */,
 				9A5DD76B25055ABD001E6D5C /* MainViewController.swift in Sources */,
+				9A8493462505778700391D72 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

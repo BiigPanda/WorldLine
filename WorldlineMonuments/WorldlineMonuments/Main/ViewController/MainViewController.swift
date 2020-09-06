@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tbvMonuments: UITableView!
     @IBOutlet weak var srchBarMonuments: UISearchBar!
     private var viewModel: MainViewModel = MainViewModel()
+    private var monumentMain: MonumentModel = MonumentModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,20 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate, UISear
         return cell
     }
     
+    //         self.performSegue(withIdentifier: "todetail", sender: nil)
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if viewModel.filterArray.count == 0 {
+             monumentMain = viewModel.dataArray[indexPath.row]
+         } else {
+             monumentMain = viewModel.filterArray[indexPath.row]
+         }
+        tbvMonuments.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
+        
+    }
+    
     
     // MARK: Search Bar Delegate Methods
     
@@ -121,4 +136,15 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate, UISear
         self.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: Navigation Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            let detailVC = segue.destination as! DetailViewController
+            guard let identifierMain = monumentMain.id else {
+                return
+            }
+            detailVC.identifier = identifierMain
+        }
+    }
 }
