@@ -12,18 +12,18 @@ import CoreData
 import JGProgressHUD
 import MapKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, MKMapViewDelegate {
     
     var identifier: String = ""
     private var detailViewModel: DetailViewModel = DetailViewModel()
     
     @IBOutlet weak var txtEmail: UITextView!
     @IBOutlet weak var lblDescription: UILabel!
-    @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var lblTransport: UILabel!
     @IBOutlet weak var lblAdress: UILabel!
     @IBOutlet weak var mapMonument: MKMapView!
     @IBOutlet weak var lblTitleMonument: UILabel!
+    @IBOutlet weak var lblPhone: UITextView!
     
     
     override func viewDidLoad() {
@@ -53,8 +53,8 @@ class DetailViewController: UIViewController {
             txtEmail.text = ""
         } else {
             txtEmail.text = detailMonument.email
-            txtEmail.isEditable = false;
-            txtEmail.dataDetectorTypes = UIDataDetectorTypes.all;
+            txtEmail.isEditable = false
+            txtEmail.dataDetectorTypes = UIDataDetectorTypes.all
         }
         
         if detailMonument.address == "null" || detailMonument.address == "undefined" {
@@ -67,6 +67,8 @@ class DetailViewController: UIViewController {
             lblPhone.text = ""
         } else {
             lblPhone.text = detailMonument.phone
+            lblPhone.isEditable = false
+            lblPhone.dataDetectorTypes = UIDataDetectorTypes.all
         }
         
         if detailMonument.transport == "null" || detailMonument.transport == "undefined" {
@@ -81,6 +83,7 @@ class DetailViewController: UIViewController {
     
     func configureMap(detailMonument: DetailMonumentModel) {
         let monument = MKPointAnnotation()
+        mapMonument.delegate = self
         monument.title = detailViewModel.dataDetailMonument.title
         guard let coordinates = detailViewModel.dataDetailMonument.geocoordinates else {
             return
@@ -93,6 +96,18 @@ class DetailViewController: UIViewController {
         mapMonument.setRegion(region, animated: true)
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        openGoogleMaps(lat: view.annotation?.coordinate.latitude ?? 0.0, long: view.annotation?.coordinate.longitude ?? 0.0)
+    }
+    
+    func openGoogleMaps(lat: Double, long: Double) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            UIApplication.shared.open(URL(string:
+                "comgooglemaps://?center=\(lat),\(long)&zoom=14&views=traffic&q=\(lat),\(long)")!)
+        } else {
+            print("Can't use comgooglemaps://")
+        }
+    }
     
 }
 
