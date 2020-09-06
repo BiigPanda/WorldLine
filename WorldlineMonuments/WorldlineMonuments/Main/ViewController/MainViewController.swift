@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tbvMonuments: UITableView!
     @IBOutlet weak var srchBarMonuments: UISearchBar!
     private var viewModel: MainViewModel = MainViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         connection()
@@ -34,14 +34,16 @@ class MainViewController: UIViewController {
             viewModel.callStartApi { (monuments, error) in
                 if error == nil {
                     self.viewModel.dataArray = monuments
+                    hud.dismiss()
                 }
             }
+        } else {
+            hud.dismiss()
         }
-        hud.dismiss()
         tbvMonuments.register(UINib(nibName: "MainMonumentTableViewCell", bundle: nil), forCellReuseIdentifier: "mainMonumentCell")
         tbvMonuments.keyboardDismissMode = .onDrag
     }
-
+    
     func connection() {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         viewModel.context = delegate.persistentContainer.viewContext
@@ -64,6 +66,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbvMonuments.dequeueReusableCell(withIdentifier: "mainMonumentCell") as! MainMonumentTableViewCell
         
+        var object : MonumentModel
+        
+        if viewModel.filterArray.count != 0 {
+            object = viewModel.filterArray[indexPath.row]
+        } else {
+            object = viewModel.dataArray[indexPath.row]
+        }
+        
+        cell.lblMainMonument.text = object.title
+        
+        return cell
     }
     
     
