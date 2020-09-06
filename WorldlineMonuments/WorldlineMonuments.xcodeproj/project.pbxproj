@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E57C4DF36007EB1A06E9FE3 /* Pods_WorldlineMonuments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66A984D5D15680912A766B9 /* Pods_WorldlineMonuments.framework */; };
 		9A5DD75025055A5C001E6D5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DD74F25055A5C001E6D5C /* AppDelegate.swift */; };
 		9A5DD75225055A5C001E6D5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DD75125055A5C001E6D5C /* SceneDelegate.swift */; };
 		9A5DD75725055A5C001E6D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5DD75525055A5C001E6D5C /* Main.storyboard */; };
@@ -15,10 +16,11 @@
 		9A5DD75F25055A60001E6D5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A5DD75D25055A60001E6D5C /* LaunchScreen.storyboard */; };
 		9A5DD76B25055ABD001E6D5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DD76A25055ABD001E6D5C /* MainViewController.swift */; };
 		9A5DD76D25055AD8001E6D5C /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DD76C25055AD8001E6D5C /* MainViewModel.swift */; };
-		9A5DD76F25055AE4001E6D5C /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5DD76E25055AE4001E6D5C /* MainModel.swift */; };
+		9A84933B25055F9D00391D72 /* MonumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A84933A25055F9D00391D72 /* MonumentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1798C79F89D1B54B9EB76225 /* Pods-WorldlineMonuments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldlineMonuments.debug.xcconfig"; path = "Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments.debug.xcconfig"; sourceTree = "<group>"; };
 		9A5DD74C25055A5C001E6D5C /* WorldlineMonuments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldlineMonuments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5DD74F25055A5C001E6D5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A5DD75125055A5C001E6D5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +31,9 @@
 		9A5DD76025055A60001E6D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A5DD76A25055ABD001E6D5C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A5DD76C25055AD8001E6D5C /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		9A5DD76E25055AE4001E6D5C /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		9A84933A25055F9D00391D72 /* MonumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonumentModel.swift; sourceTree = "<group>"; };
+		B38BF88A87465AAC3DDE5F0E /* Pods-WorldlineMonuments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldlineMonuments.release.xcconfig"; path = "Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments.release.xcconfig"; sourceTree = "<group>"; };
+		E66A984D5D15680912A766B9 /* Pods_WorldlineMonuments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldlineMonuments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E57C4DF36007EB1A06E9FE3 /* Pods_WorldlineMonuments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +53,8 @@
 			children = (
 				9A5DD74E25055A5C001E6D5C /* WorldlineMonuments */,
 				9A5DD74D25055A5C001E6D5C /* Products */,
+				CED809D77EF679608ABBC52C /* Pods */,
+				F0354B5C5F46F5F6F6361F4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +94,7 @@
 		9A5DD76725055A7E001E6D5C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9A5DD76E25055AE4001E6D5C /* MainModel.swift */,
+				9A84933A25055F9D00391D72 /* MonumentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +115,23 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		CED809D77EF679608ABBC52C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1798C79F89D1B54B9EB76225 /* Pods-WorldlineMonuments.debug.xcconfig */,
+				B38BF88A87465AAC3DDE5F0E /* Pods-WorldlineMonuments.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F0354B5C5F46F5F6F6361F4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E66A984D5D15680912A766B9 /* Pods_WorldlineMonuments.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A5DD76325055A60001E6D5C /* Build configuration list for PBXNativeTarget "WorldlineMonuments" */;
 			buildPhases = (
+				F89ACEF0192C79FB84890D68 /* [CP] Check Pods Manifest.lock */,
 				9A5DD74825055A5C001E6D5C /* Sources */,
 				9A5DD74925055A5C001E6D5C /* Frameworks */,
 				9A5DD74A25055A5C001E6D5C /* Resources */,
+				7C2C8E1C69D42F52C5E54E63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,6 +200,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7C2C8E1C69D42F52C5E54E63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F89ACEF0192C79FB84890D68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WorldlineMonuments-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A5DD74825055A5C001E6D5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -181,9 +249,9 @@
 			files = (
 				9A5DD76D25055AD8001E6D5C /* MainViewModel.swift in Sources */,
 				9A5DD75A25055A5C001E6D5C /* WorldlineMonuments.xcdatamodeld in Sources */,
-				9A5DD76F25055AE4001E6D5C /* MainModel.swift in Sources */,
 				9A5DD75025055A5C001E6D5C /* AppDelegate.swift in Sources */,
 				9A5DD75225055A5C001E6D5C /* SceneDelegate.swift in Sources */,
+				9A84933B25055F9D00391D72 /* MonumentModel.swift in Sources */,
 				9A5DD76B25055ABD001E6D5C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +394,7 @@
 		};
 		9A5DD76425055A60001E6D5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1798C79F89D1B54B9EB76225 /* Pods-WorldlineMonuments.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -344,6 +413,7 @@
 		};
 		9A5DD76525055A60001E6D5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B38BF88A87465AAC3DDE5F0E /* Pods-WorldlineMonuments.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

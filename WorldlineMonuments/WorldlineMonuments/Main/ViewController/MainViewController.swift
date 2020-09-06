@@ -7,24 +7,50 @@
 //
 
 import UIKit
+import SDWebImage
+import CoreData
+import JGProgressHUD
+
 
 class MainViewController: UIViewController {
+    
+    private var viewModel: MainViewModel = MainViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        connection()
+        configureView()
+        bind()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureView() {
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        viewModel.dataArray = viewModel.loadHeroes()
+        if viewModel.dataArray.count == 0 {
+            viewModel.callStartApi { (monuments, error) in
+                if error == nil {
+                    viewModel.dataArray = monuments
+                }
+            }
+        }
+        hud.dismiss()
+        //tbvMainView.keyboardDismissMode = .onDrag
     }
-    */
 
+    func connection() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        viewModel.context = delegate.persistentContainer.viewContext
+    }
+    
+    private func bind() {
+        viewModel.refreshData = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.tbvMainView.reloadData()
+            }
+        }
+    }
 }

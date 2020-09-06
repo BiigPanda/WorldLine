@@ -1,0 +1,6 @@
+framework module Pods_WorldlineMonuments {
+  umbrella header "Pods-WorldlineMonuments-umbrella.h"
+
+  export *
+  module * { export * }
+}
