@@ -59,6 +59,16 @@ class DetailViewModel {
         return monumentDetail
     }
     
+    func convertStringLocation(locations: String) -> [Double]  {
+        var doubleNumbers: [Double] = []
+        let fullNameArr = locations.components(separatedBy: ",")
+        let latDouble: Double = Double(fullNameArr[0]) ?? 0.0
+        let longDouble: Double = Double(fullNameArr[1]) ?? 0.0
+        doubleNumbers.append(latDouble)
+        doubleNumbers.append(longDouble)
+        return doubleNumbers
+    }
+    
     
     
     

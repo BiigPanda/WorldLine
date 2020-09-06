@@ -17,13 +17,14 @@ class DetailViewController: UIViewController {
     var identifier: String = ""
     private var detailViewModel: DetailViewModel = DetailViewModel()
     
+    @IBOutlet weak var txtEmail: UITextView!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
-    @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblTransport: UILabel!
     @IBOutlet weak var lblAdress: UILabel!
     @IBOutlet weak var mapMonument: MKMapView!
     @IBOutlet weak var lblTitleMonument: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class DetailViewController: UIViewController {
             if error == nil {
                 self.detailViewModel.dataDetailMonument = detailMonument
                 self.configureElements(detailMonument: self.detailViewModel.dataDetailMonument)
+                self.configureMap(detailMonument: self.detailViewModel.dataDetailMonument)
                 hud.dismiss()
             }
         }
@@ -47,13 +49,51 @@ class DetailViewController: UIViewController {
     }
     
     func configureElements(detailMonument: DetailMonumentModel) {
-        lblEmail.text = detailMonument.email
-        lblPhone.text = detailMonument.phone
-        lblAdress.text = detailMonument.address
-        lblTransport.text = detailMonument.transport
+        if detailMonument.email == "null" || detailMonument.email == "undefined" {
+            txtEmail.text = ""
+        } else {
+            txtEmail.text = detailMonument.email
+            txtEmail.isEditable = false;
+            txtEmail.dataDetectorTypes = UIDataDetectorTypes.all;
+        }
+        
+        if detailMonument.address == "null" || detailMonument.address == "undefined" {
+            lblAdress.text = ""
+        } else {
+            lblAdress.text = detailMonument.address
+        }
+        
+        if detailMonument.phone == "null" || detailMonument.phone == "undefined" {
+            lblPhone.text = ""
+        } else {
+            lblPhone.text = detailMonument.phone
+        }
+        
+        if detailMonument.transport == "null" || detailMonument.transport == "undefined" {
+            lblTransport.text = ""
+        } else {
+            lblTransport.text = detailMonument.transport
+        }
+        
         lblTitleMonument.text = detailMonument.title
         lblDescription.text = detailMonument.description
     }
     
+    func configureMap(detailMonument: DetailMonumentModel) {
+        let monument = MKPointAnnotation()
+        monument.title = detailViewModel.dataDetailMonument.title
+        guard let coordinates = detailViewModel.dataDetailMonument.geocoordinates else {
+            return
+        }
+        let coordinatesMap = detailViewModel.convertStringLocation(locations: coordinates)
+        monument.coordinate = CLLocationCoordinate2D(latitude: coordinatesMap[0], longitude: coordinatesMap[1])
+        let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+        let region = MKCoordinateRegion(center: monument.coordinate, span: span)
+        mapMonument.addAnnotation(monument)
+        mapMonument.setRegion(region, animated: true)
+    }
+    
     
 }
+
+
