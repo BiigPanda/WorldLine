@@ -119,4 +119,16 @@ class MainViewModel {
         
     }
     
+    // MARK: Search bar Methods
+    
+    func searchMonumentByName (nameMonument: String) {
+        guard !nameMonument.isEmpty else {
+            return
+        }
+        filterArray = dataArray.filter({ (monument) -> Bool in
+            return (monument.title?.contains(nameMonument))!
+        })
+    }
+    
+    
 }

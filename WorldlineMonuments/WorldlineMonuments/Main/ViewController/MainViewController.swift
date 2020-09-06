@@ -40,6 +40,7 @@ class MainViewController: UIViewController {
         } else {
             hud.dismiss()
         }
+        
         tbvMonuments.register(UINib(nibName: "MainMonumentTableViewCell", bundle: nil), forCellReuseIdentifier: "mainMonumentCell")
         tbvMonuments.keyboardDismissMode = .onDrag
     }
@@ -58,9 +59,16 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+extension MainViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
+    // MARK: Table View Delegate Methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.dataArray.count
+        if viewModel.filterArray.count > 0 {
+            return viewModel.filterArray.count
+        } else {
+            return viewModel.dataArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,5 +87,38 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    
+    // MARK: Search Bar Delegate Methods
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty  else {
+            viewModel.filterArray.removeAll()
+            tbvMonuments.reloadData()
+            return
+        }
+        viewModel.searchMonumentByName(nameMonument: searchText)
+        bind()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
+            return
+        }
+        viewModel.searchMonumentByName(nameMonument: text)
+        
+        if viewModel.filterArray.count == 0 && searchBar.searchTextField.text?.isEmpty == false {
+            self.showAlert()
+        }
+        
+        bind()
+        srchBarMonuments.resignFirstResponder()
+        
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Not Found", message: "Monument its not found", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
