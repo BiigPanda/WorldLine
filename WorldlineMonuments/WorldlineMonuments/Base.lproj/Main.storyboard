@@ -36,6 +36,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="srchBarMonuments" destination="bde-ko-lbB" id="AHA-jM-WFJ"/>
+                        <outlet property="tbvMonuments" destination="jnI-gd-1ey" id="bdp-by-ywb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

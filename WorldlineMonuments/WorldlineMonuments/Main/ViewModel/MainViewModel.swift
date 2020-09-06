@@ -22,6 +22,13 @@ class MainViewModel {
         }
     }
     
+    var filterArray: [MonumentModel] = [] {
+        didSet{
+            refreshData()
+        }
+    }
+
+    
     var context: NSManagedObjectContext?
     
     // MARK: Service Methods
@@ -80,6 +87,36 @@ class MainViewModel {
         } catch let error as NSError {
             print("Error al guardar", error.localizedDescription)
         }
+    }
+    
+    func loadMonuments() -> [MonumentModel] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var arrayMonuments : [MonumentModel] = []
+        var emptyMonument: MonumentModel = MonumentModel()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MainMonument")
+        
+        do {
+            let records = try managedContext.fetch(fetchRequest)
+            
+            if let records = records as? [NSManagedObject]{
+                for record in records {
+                    emptyMonument.id = record.value(forKey: "id") as? String ?? ""
+                    emptyMonument.title = record.value(forKey: "title") as? String ?? ""
+                    emptyMonument.geocoordinates = record.value(forKey: "geocoordinates") as? String ?? ""
+                    arrayMonuments.append(emptyMonument)
+                    emptyMonument = MonumentModel()
+                }
+                
+                return arrayMonuments
+            }
+        } catch let error as NSError {
+            print("No ha sido posible cargar \(error), \(error.userInfo)")
+            return []
+        }
+        return []
+        
     }
     
 }

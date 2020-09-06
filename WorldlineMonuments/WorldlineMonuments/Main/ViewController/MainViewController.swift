@@ -14,6 +14,8 @@ import JGProgressHUD
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var tbvMonuments: UITableView!
+    @IBOutlet weak var srchBarMonuments: UISearchBar!
     private var viewModel: MainViewModel = MainViewModel()
 
     override func viewDidLoad() {
@@ -21,24 +23,23 @@ class MainViewController: UIViewController {
         connection()
         configureView()
         bind()
-
-        // Do any additional setup after loading the view.
     }
     
     private func configureView() {
         let hud = JGProgressHUD(style: .dark)
         hud.textLabel.text = "Loading"
         hud.show(in: self.view)
-        viewModel.dataArray = viewModel.loadHeroes()
+        viewModel.dataArray = viewModel.loadMonuments()
         if viewModel.dataArray.count == 0 {
             viewModel.callStartApi { (monuments, error) in
                 if error == nil {
-                    viewModel.dataArray = monuments
+                    self.viewModel.dataArray = monuments
                 }
             }
         }
         hud.dismiss()
-        //tbvMainView.keyboardDismissMode = .onDrag
+        tbvMonuments.register(UINib(nibName: "MainMonumentTableViewCell", bundle: nil), forCellReuseIdentifier: "mainMonumentCell")
+        tbvMonuments.keyboardDismissMode = .onDrag
     }
 
     func connection() {
@@ -49,8 +50,21 @@ class MainViewController: UIViewController {
     private func bind() {
         viewModel.refreshData = { [weak self] () in
             DispatchQueue.main.async {
-                self?.tbvMainView.reloadData()
+                self?.tbvMonuments.reloadData()
             }
         }
     }
+}
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tbvMonuments.dequeueReusableCell(withIdentifier: "mainMonumentCell") as! MainMonumentTableViewCell
+        
+    }
+    
+    
 }
