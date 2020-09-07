@@ -22,6 +22,7 @@
 		9A8493462505778700391D72 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8493452505778700391D72 /* DetailViewController.swift */; };
 		9A849348250577A400391D72 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A849347250577A400391D72 /* DetailViewModel.swift */; };
 		9A84934A250577B300391D72 /* DetailMonumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A849349250577B300391D72 /* DetailMonumentModel.swift */; };
+		9A84934E2505B21900391D72 /* APOLLO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9A84934D2505B21900391D72 /* APOLLO.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9A8493452505778700391D72 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9A849347250577A400391D72 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		9A849349250577B300391D72 /* DetailMonumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonumentModel.swift; sourceTree = "<group>"; };
+		9A84934D2505B21900391D72 /* APOLLO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = APOLLO.otf; sourceTree = "<group>"; };
 		B38BF88A87465AAC3DDE5F0E /* Pods-WorldlineMonuments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldlineMonuments.release.xcconfig"; path = "Target Support Files/Pods-WorldlineMonuments/Pods-WorldlineMonuments.release.xcconfig"; sourceTree = "<group>"; };
 		E66A984D5D15680912A766B9 /* Pods_WorldlineMonuments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldlineMonuments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 		9A5DD74E25055A5C001E6D5C /* WorldlineMonuments */ = {
 			isa = PBXGroup;
 			children = (
+				9A84934B2505B1F800391D72 /* Utils */,
 				9A8493412505774A00391D72 /* Detail */,
 				9A5DD76625055A79001E6D5C /* Main */,
 				9A5DD74F25055A5C001E6D5C /* AppDelegate.swift */,
@@ -170,6 +173,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9A84934B2505B1F800391D72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9A84934C2505B20400391D72 /* Fonts */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9A84934C2505B20400391D72 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9A84934D2505B21900391D72 /* APOLLO.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CED809D77EF679608ABBC52C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +269,7 @@
 				9A5DD75F25055A60001E6D5C /* LaunchScreen.storyboard in Resources */,
 				9A8493402505644600391D72 /* MainMonumentTableViewCell.xib in Resources */,
 				9A5DD75C25055A60001E6D5C /* Assets.xcassets in Resources */,
+				9A84934E2505B21900391D72 /* APOLLO.otf in Resources */,
 				9A5DD75725055A5C001E6D5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

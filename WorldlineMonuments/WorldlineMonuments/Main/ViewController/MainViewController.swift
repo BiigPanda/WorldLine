@@ -89,14 +89,14 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate, UISear
     }
     
     //         self.performSegue(withIdentifier: "todetail", sender: nil)
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if viewModel.filterArray.count == 0 {
-             monumentMain = viewModel.dataArray[indexPath.row]
-         } else {
-             monumentMain = viewModel.filterArray[indexPath.row]
-         }
+            monumentMain = viewModel.dataArray[indexPath.row]
+        } else {
+            monumentMain = viewModel.filterArray[indexPath.row]
+        }
         tbvMonuments.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "toDetail", sender: nil)
         

@@ -48,14 +48,14 @@ class DetailViewModel {
     
     func parsedDetailMonument(json: JSON) -> DetailMonumentModel {
         let monumentDetail = DetailMonumentModel()
-            monumentDetail.id = json["id"].stringValue
-            monumentDetail.title = json["title"].stringValue
-            monumentDetail.geocoordinates = json["geocoordinates"].stringValue
-            monumentDetail.address = json["address"].stringValue
-            monumentDetail.description = json["description"].stringValue
-            monumentDetail.email = json["email"].stringValue
-            monumentDetail.phone = json["phone"].stringValue
-            monumentDetail.transport = json["transport"].stringValue
+        monumentDetail.id = json["id"].stringValue
+        monumentDetail.title = json["title"].stringValue
+        monumentDetail.geocoordinates = json["geocoordinates"].stringValue
+        monumentDetail.address = json["address"].stringValue
+        monumentDetail.description = json["description"].stringValue
+        monumentDetail.email = json["email"].stringValue
+        monumentDetail.phone = json["phone"].stringValue
+        monumentDetail.transport = json["transport"].stringValue
         return monumentDetail
     }
     
